@@ -30,7 +30,7 @@ function VideoDetails() {
                         src={currentVideo.videoUrl}
                         controls
                         className="rounded-lg"
-                        style={{border:"2px solid gray"}}
+                        style={{border:"2px solid #3d3d3b"}}
                     ></video>
                 </div>
                 <div className="p-2 px-4 ">
@@ -55,11 +55,11 @@ function VideoDetails() {
                     </div>
                 </div>
             </div>   
-            <div className=" w-1/3 h-screen overflow-y-scroll" style={{border:"2px solid gray"}}>
+            <div className="px-2 w-1/3 h-screen overflow-y-scroll scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-gray-500 py-4" style={{borderLeft:"2px solid #3d3d3b"}}>
                 {  
                     data.map((items) => (
-                        <div className="w-full flex p-2 hover:bg-zinc-800 hover:rounded-md px-4 gap-2 cursor-pointer rounded-lg  my-2" onClick={()=>handlePlay(items)} style={{border:"2px solid gray"}}>
-                            <div className="w-2/5 rounded-md h-24" style={{border:"2px solid gray"}}>
+                        <div className="w-full flex p-2 hover:bg-zinc-800 hover:rounded-md px-4 gap-2 cursor-pointer rounded-lg  my-3 bg-zinc-900 hover:bg-zinc-850" onClick={()=>handlePlay(items)} style={{}}>
+                            <div className="w-2/5 rounded-md h-24" style={{border:"2px solid #3d3d3b"}}>
                                 <img src={items.thumbnailUrl} alt="" className="rounded-md w-full h-full" />
                             </div>
                             <div className="w-3/5 overflow-hidden px-2">
