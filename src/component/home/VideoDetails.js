@@ -17,7 +17,7 @@ function VideoDetails() {
 
     // console.log(currentVideo.title);
     const handlePlay=(items)=>{
-        console.log(items);
+        // console.log(items);
         dispach(videoPlay(items));
         nav(`/video/${items.id}`)
     }
@@ -58,7 +58,7 @@ function VideoDetails() {
             <div className="px-2 w-1/3 h-screen overflow-y-scroll scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-gray-500 py-4" style={{borderLeft:"2px solid #3d3d3b"}}>
                 {  
                     data.map((items) => (
-                        <div className="w-full flex p-2 hover:bg-zinc-800 hover:rounded-md px-4 gap-2 cursor-pointer rounded-lg  my-3 bg-zinc-900 hover:bg-zinc-850" onClick={()=>handlePlay(items)} style={{}}>
+                        <div className="w-full flex p-2 hover:bg-zinc-800 hover:rounded-md px-4 gap-2 cursor-pointer rounded-lg  my-3 bg-zinc-900 hover:bg-zinc-850" onClick={()=>handlePlay(items)} style={{}} key={items.id}>
                             <div className="w-2/5 rounded-md h-24" style={{border:"2px solid #3d3d3b"}}>
                                 <img src={items.thumbnailUrl} alt="" className="rounded-md w-full h-full" />
                             </div>
