@@ -14,7 +14,7 @@ import Subscribe from './subscribe/Subscribe'
 function App1() {
     return (
 
-        <div className='border-2 overflow-hidden'>
+        <div className='overflow-hidden'>
             <div className='scrollbar-thin'>
                 <Navbar />
             </div>

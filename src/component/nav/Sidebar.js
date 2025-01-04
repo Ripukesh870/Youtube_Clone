@@ -58,7 +58,7 @@ function Sidebar() {
 
     return (
         <>
-            <div className='w-1/5 bg-[#212121] overflow-auto pb-8 h-screen lg:w-1/5  '>
+            <div className='bg-[#212121] overflow-auto pb-8 h-screen lg:w-1/5 md:w-1/4 sm:w-1/3 w-0 xl:w-1/6'>
                 <ul className='flex flex-col border-b-1 border-gray-900 border-b-4 mb-2 pb-2 p-3'>
                     {
                         mainLink.map((user) => {

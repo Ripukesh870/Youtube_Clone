@@ -23,13 +23,13 @@ function VideoDetails() {
     }
 
     return (
-        <div className="w-full flex ">
-            <div className=" w-2/3">
-                <div className="w-full p-2">
+        <div className="w-full flex flex-row border-2 lg:w-4/5 md:w-3/4 sm:w-2/3 xl:w-5/6 ">
+            <div className=" w-2/3 xl:w-3/4 lg:w-2/3 mt-2 p-4 border-2 ">
+                <div className="w-full p-2 ">
                     <video
                         src={currentVideo.videoUrl}
                         controls
-                        className="rounded-lg"
+                        className="rounded-lg w-full"
                         style={{border:"2px solid #3d3d3b"}}
                     ></video>
                 </div>
@@ -55,7 +55,7 @@ function VideoDetails() {
                     </div>
                 </div>
             </div>   
-            <div className="px-2 w-1/3 h-screen overflow-y-scroll scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-gray-500 py-4" style={{borderLeft:"2px solid #3d3d3b"}}>
+            <div className="px-2 w-1/3 h-screen overflow-y-scroll scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-gray-500 py-4 xl:w-1/4" style={{borderLeft:"2px solid #3d3d3b"}}>
                 {  
                     data.map((items) => (
                         <div className="w-full flex p-2 hover:bg-zinc-800 hover:rounded-md px-4 gap-2 cursor-pointer rounded-lg  my-3 bg-zinc-900 hover:bg-zinc-850" onClick={()=>handlePlay(items)} style={{}} key={items.id}>

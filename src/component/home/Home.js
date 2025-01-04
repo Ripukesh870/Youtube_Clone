@@ -23,29 +23,29 @@ function Home() {
 
     return (
         <>
-            <div className="h-screen w-4/5 px-4 py-4 grid grid-cols-4 gap-3 gap-y-5 overflow-y-scroll ">
+            <div className=" w-full h-screen xl:5/6 lg:w-4/5 md:w-3/4 sm:w-2/3 px-3 py-5 m-3  grid grid-cols-1 gap-5 gap-y-0 overflow-y-scroll md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 xl:grid-cols-5">
                 {
                     data.map((items, index) => (
                         <div
-                            className=" rounded-lg shadow-md flex flex-col p-2 pb-4 h-5/6 hover:bg-zinc-800 "
+                            className=" rounded-lg shadow-md flex flex-col p-2 h-5/6 hover:bg-zinc-800 bg-zinc-900 pb-6 "
                             key={index}
                             onClick={() => handleClickVideo(items)}
                         >
-                            <div className="flex justify-center items-center h-2/3 ">
-                               <img src={items.thumbnailUrl} alt="thumbnail" className="rounded-xl w-full h-full" />
+                            <div className="flex justify-center items-center h-[150px]">
+                               <img src={items.thumbnailUrl} alt="thumbnail" className="rounded-xl w-full h-[130px]" />
                             </div>
-                            <div className=''>
-                                <div className="flex items-center mb-2">
+                            <div className=' pb-1 '>
+                                <div className="flex items-center ">
                                     <img
-                                        className="w-11 h-11 rounded-full p-1 m-2"
+                                        className="w-8 h-8 rounded-full p-1 m-2 "
                                         src={log}
                                         alt="author avatar"
                                     />
-                                    <h1 className="text-lg font-semibold line-clamp-2">
+                                    <p className="text-sm font-semibold  truncate">
                                         {items.title}
-                                    </h1>
+                                    </p>
                                 </div>
-                                <h3 className="text-sm text-gray-300 px-14 ">{items.author}</h3>
+                                <p className="text-sm text-gray-300 px-8 truncate">{items.author}</p>
                             </div>
                         </div>
                     ))
