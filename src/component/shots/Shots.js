@@ -17,10 +17,10 @@ const ReelsPage = () => {
     return (
         <div className="flex flex-col overflow-y-scroll h-screen snap-y snap-mandatory w-4/5 border-2 ">
             {infiniteVideos.map((video, index) => (
-                <div className="border-2 h-[90%]  w-full  relative flex justify-center items-center bg-black snap-start ">
+                <div className="border-2 h-[90%]  w-full  relative flex justify-center items-center bg-black snap-start " key={index}>
 
                     <div
-                        key={index}
+                        
                         className=" w-1/3 h-full flex border-2 my-5"
                     >
                         <video 
