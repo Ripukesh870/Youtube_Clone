@@ -10,6 +10,7 @@ import Library from './library/Library'
 import WatchLater from './watchlater/WatchLater'
 import LikeVideo from './likedvideo/LikeVideo'
 import Subscribe from './subscribe/Subscribe'
+import SubscriberManage from './subscribe/SubscriberManage'
 
 function App1() {
     return (
@@ -27,6 +28,8 @@ function App1() {
                     <Route path="/video/:id" element={<VideoDetails />} />
                     <Route path="/shots" element={<Shots />} />
                     <Route path="/subscribe" element={<Subscribe />} />
+                    <Route path="/subscriber/manages" element={<SubscriberManage />} />
+                    
                     <Route path="/library" element={<Library />} />
                     
                     <Route path="/history" element={<History />} />

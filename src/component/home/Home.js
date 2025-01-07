@@ -23,7 +23,7 @@ function Home() {
 
     return (
         <>
-            <div className="w-full h-screen xl:w-5/6 lg:w-4/5 md:w-3/4 sm:w-2/3 px-3 py-5 m-3  grid grid-cols-1 gap-5 gap-y-0 overflow-y-scroll md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 xl:grid-cols-5">
+            <div className="w-full h-screen xl:w-5/6 lg:w-4/5 md:w-3/4 sm:w-2/3 px-3 py-5 grid grid-cols-1 gap-5 gap-y-0 overflow-y-scroll md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 xl:grid-cols-4">
                 {
                     data.map((items, index) => (
                         <div

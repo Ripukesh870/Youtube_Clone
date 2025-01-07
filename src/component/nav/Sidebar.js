@@ -34,14 +34,15 @@ function Sidebar() {
     ];
     const otherLinks = [
         {
-            icon: <MdOutlineLibraryAdd className='text-xl'/>,
-            name: 'Library',
-            route:"/library"
-        },
-        {
+           
             icon: <FaHistory className='text-xl'/>,
             name: 'History',
             route:"/history"
+        },
+        {
+            icon: <MdOutlineLibraryAdd className='text-xl'/>,
+            name: 'Library',
+            route:"/library"
         },
         {
             icon: <MdOutlineWatchLater className='text-xl'/>,
