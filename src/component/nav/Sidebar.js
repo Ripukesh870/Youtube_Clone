@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdHomeFilled } from "react-icons/md";
 import { SiYoutubeshorts } from "react-icons/si";
 import { MdSubscriptions } from "react-icons/md";
@@ -7,13 +7,39 @@ import { FaHistory } from "react-icons/fa";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { AiFillLike } from "react-icons/ai";
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleMenu } from '../../redux/reducer/action';
 
 
 function Sidebar() {
-   const nav =useNavigate();
+    // const [menu,setmenu]=useState(true);
+    const nav = useNavigate();
+    const menu = useSelector((state) => state.menu.isOpen);
+    const dispatch = useDispatch();
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+
     const handleclick=(route)=>{
-        nav(route)
+         // Check if window width is less than or equal to sm (e.g., 640px)
+        if (windowWidth <= 640) {
+            dispatch(toggleMenu()); // Dispatch only if screen is smaller than or equal to sm
+        }
+        nav(route);
+        
     }
+    useEffect(() => {
+        const handleResize = () => {
+          setWindowWidth(window.innerWidth);
+        };
+    
+        window.addEventListener('resize', handleResize);
+    
+        // Cleanup listener on unmount
+        return () => window.removeEventListener('resize', handleResize);
+      }, []);
+
+
+      
 
     const mainLink = [
         {
@@ -59,7 +85,7 @@ function Sidebar() {
 
     return (
         <>
-            <div className='bg-[#212121] overflow-auto pb-8 h-screen lg:w-1/5 md:w-1/4 sm:w-1/3 w-0 xl:w-1/6'>
+            <div className={`bg-[#212121] overflow-auto pb-8 h-screen lg:w-1/5 md:w-1/4 sm:w-1/3 w-0 xl:w-1/6 ${menu?"":"w-full fixed left-0 z-50"} `}>
                 <ul className='flex flex-col border-b-1 border-gray-900 border-b-4 mb-2 pb-2 p-3'>
                     {
                         mainLink.map((user) => {

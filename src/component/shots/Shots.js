@@ -75,7 +75,7 @@ const VideoList = () => {
   };
 
   return (
-    <div className="flex-col w-full sm:w-2/3 md:w-3/4 lg:w-4/5 xl:w-5/6 h-screen overflow-y-scroll snap-y snap-mandatory ">
+    <div className="flex-col w-full sm:w-2/3 md:w-3/4 lg:w-4/5 xl:w-5/6 h-screen overflow-y-scroll snap-y snap-mandatory">
       {infiniteVideos.map((video, index) => (
         <div key={index} className="w-full h-[90%] snap-start " style={{border:"2px solid black"}}  >
           <div className=" mx-auto h-[90%] my-[3%] relative " style={{ aspectRatio: "9 / 16", border:"" }} >

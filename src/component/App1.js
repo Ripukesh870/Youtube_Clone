@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './nav/Navbar'
 import Sidebar from './nav/Sidebar'
 import Home from './home/Home'
@@ -11,11 +11,27 @@ import WatchLater from './watchlater/WatchLater'
 import LikeVideo from './likedvideo/LikeVideo'
 import Subscribe from './subscribe/Subscribe'
 import SubscriberManage from './subscribe/SubscriberManage'
+import LoadingPage from './nav/LoadingPage'
 
 function App1() {
+
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 2000); // 2-second loading time
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (loading) {
+        return <LoadingPage />;
+    }
+
     return (
 
         <div className='overflow-hidden'>
+            {/* <LoadingPage/> */}
             <div className='scrollbar-thin'>
                 <Navbar />
             </div>
