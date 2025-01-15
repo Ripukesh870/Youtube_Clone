@@ -25,33 +25,33 @@ const VideoList = () => {
     {
       id: 1,
       label: "Like",
-      icon: <ThumbUpOffAltIcon className="m-1" />,
+      icon: <ThumbUpOffAltIcon className="m-1" fontSize="medium"/>,
       count: 0, // Example count to show likes
     },
     {
       id: 2,
       label: "Dislike",
-      icon: <ThumbDownOffAltIcon className="m-1" />,
+      icon: <ThumbDownOffAltIcon className="m-1 " fontSize="medium"/>,
       count: 0, // Example count to show dislikes
     },
     {
       id: 3,
       label: "Comment",
-      icon: <CommentIcon className="m-1" />,
+      icon: <CommentIcon className="m-1" fontSize="small" />,
       count: 0, // Example count to show comments
     },
     {
       id: 4,
       label: "Share",
-      icon: <ShareIcon className="m-1" />,
+      icon: <ShareIcon className="m-1 " fontSize="small"/>,
       count: "Share", // Example count to show comments
       action: () => alert("Share functionality triggered"), // Example action
     },
     {
       id: 5,
       label: "More Options",
-      icon: <MoreVertIcon className="m-1" />,
-      count: "share", // Example count to show comments
+      icon: <MoreVertIcon className="m-1 " fontSize="small" />,
+      // count: "More", // Example count to show comments
       action: () => alert("More options triggered"), // Example action
     },
   ];
@@ -75,35 +75,36 @@ const VideoList = () => {
   };
 
   return (
-    <div className="flex-col w-full sm:w-2/3 md:w-3/4 lg:w-4/5 xl:w-5/6 h-screen overflow-y-scroll snap-y snap-mandatory">
+    <div className="flex-col w-full sm:w-2/3 md:w-3/4 lg:w-4/5 xl:w-5/6 h-screen overflow-y-scroll snap-y snap-mandatory ">
       {infiniteVideos.map((video, index) => (
         <div key={index} className="w-full h-[90%] snap-start " style={{border:"2px solid black"}}  >
-          <div className=" mx-auto h-[90%] my-[3%] relative " style={{ aspectRatio: "9 / 16", border:"" }} >
+          <div className=" mx-auto h-[90%] my-[3%] relative " style={{ aspectRatio: "9 / 16" }} >
             <video
               ref={(el) => (videoRefs.current[index] = el)}
               className=" h-full rounded-xl"
               src={video.src}
               loop
-              muted
+              // muted
               // style={{ aspectRatio: "16 / 9" }}
               onClick={() => handleVideoClick(index)}
             />
-            <div className=" absolute bottom-0 w-full ">
-              <hr className="mb-2 " />
-              <div className="flex justify-between px-3 pr-16 ">
-                <div className="flex items-center space-x-2 w-[63%]">
-                  <img src={log} className="rounded-full w-10" />
-                  <h1 className="text-lg truncate">{video.label}</h1>
+            <div className=" absolute bottom-2 w-full  ">
+              {/* <hr className="mb-2 " /> */}
+              <div className="relative flex pl-3 sm:px-3 justify-between items-center w-[85%] sm:w-full ">
+                <div className="flex items-center space-x-2 w-[60%] ">
+                  <img src={log} className="rounded-full w-8 h-8" />
+                  <h1 className="text-sm truncate">{video.label}</h1>
                 </div>
-                <div className=" my-auto">
-                  <button className="text-xl rounded-lg bg-red-900 px-3 py-1">
+
+                <div className="my-auto right-0 ">
+                  <button className="text-sm rounded-lg bg-red-900 px-4 py-1 ">
                     Subscribe
                   </button>
                 </div>
               </div>
-              <h1 className="mx-3 my-1">video title # tags </h1>
+              <h1 className="mx-3 text-sm my-1">video title # tags </h1>
             </div>
-            <div className=" w-14 absolute bottom-0 lg:right-[-4rem] justify-center  right-0">
+            <div className=" sm:w-14 absolute bottom-3 sm:right-[-4rem] justify-center right-0 px-1 " >
                 {/* {videoSide.map((items) => (
                   <div className="w-auto  flex flex-col justify-center items-center p-1" key={items.id}>
                     <button className="border-2 rounded-full p-[2px] "> {items.icon} </button>
@@ -112,18 +113,19 @@ const VideoList = () => {
                 ))} */}
                   {
                     videoSide.map((item) => (
-                      <div key={item.id} className="flex flex-col items-center pb-1 ">
-                        <button
+                      <div key={item.id} className="flex flex-col items-center pb-1 my-1 sm:my-0 ">
+                        <button 
                           onClick={item.action}
-                          className="p-1 border rounded-full hover:bg-gray-200"
+                          className=" rounded-full sm:p-1 sm:border sm:rounded-full hover:bg-gray-200 "
                         >
                           {item.icon}
                         </button>
-                        {item.count !== undefined && <p>{item.count}</p>}
+                        {/* <p>{item.count}</p> */}
+                        {item.count !== undefined && <p className="text-xs">{item.count}</p>}
                       </div>
                   ))}
-              <div className=" w-full justify-center items-center">
-                <img src={log} className="rounded-full" />
+              <div className=" w-full flex justify-center items-center " >
+                <img src={log} className="rounded-full w-8 h-8 sm:w-10 sm:h-10 cursor-pointer" />
               </div>
             </div>
           </div>

@@ -27,7 +27,7 @@ function Subscribe() {
   }
 
   return (
-    <div className="px-4 w-full sm:w-2/3 md:w-3/4 lg:w-4/5 xl:w-5/6 h-screen overflow-y-scroll border-2">
+    <div className="px-4 w-full sm:w-2/3 md:w-3/4 lg:w-4/5 xl:w-5/6 h-screen overflow-y-scroll">
       <div className=" w-full mt-2">
         <div className=" flex p-5 justify-between">
           <h1 className="text-2xl">Latest </h1>
@@ -43,7 +43,7 @@ function Subscribe() {
       </div>
       {
         menu==false ?
-      
+
       <div className=" w-full h-screen py-5 grid grid-cols-1 gap-5 gap-y-0  md:grid-cols-3  sm:grid-cols-2 lg:grid-cols-4">
         {
           data.map((items, index) => (
@@ -73,7 +73,7 @@ function Subscribe() {
         }
       </div> :
 
-      <div className=" w-full h-screen py-5 grid grid-cols-1 gap-5 gap-y-0  ">
+      <div className=" w-full h-screen py-5 grid grid-cols-1 gap-5 gap-y-0 ">
         {data.map((items, index) => (
           <div
             className=" rounded-lg shadow-md flex flex-row   hover:bg-zinc-800 bg-zinc-900 pb-3 p-3 my-3 mx-2"

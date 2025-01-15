@@ -2,7 +2,7 @@
 import { TOGGLE_MENU, OPEN_MENU, CLOSE_MENU } from './action';
 
 const initialState = {
-  isOpen: true, // Initial menu state
+  isOpen: true, 
 };
 
 const menuReducer = (state = initialState, action) => {
@@ -12,16 +12,16 @@ const menuReducer = (state = initialState, action) => {
         ...state,
         isOpen: !state.isOpen,
       };
-    case OPEN_MENU:
-      return {
-        ...state,
-        isOpen: true,
-      };
-    case CLOSE_MENU:
-      return {
-        ...state,
-        isOpen: false,
-      };
+    // case OPEN_MENU:
+    //   return {
+    //     ...state,
+    //     isOpen: true,
+    //   };
+    // case CLOSE_MENU:
+    //   return {
+    //     ...state,
+    //     isOpen: false,
+    //   };
     default:
       return state;
   }

@@ -10,39 +10,39 @@ function LikeVideo() {
 
   const dispach = useDispatch();
   const nav = useNavigate();
-  
+
 
   const handleClick_video = (items) => {
-      console.log(items);
-      dispach(videoPlay(items));
-      nav(`/video/${items.id}`);
-    };
+    console.log(items);
+    dispach(videoPlay(items));
+    nav(`/video/${items.id}`);
+  };
 
   return (
-    <div className='h-screen lg:flex border-2 w-full sm:w-2/3 md:w-3/4 lg:w-4/5 xl:w-5/6 '>
-      <div className='w-full sm:w-1/3 h-[85%] border-2 m-4 rounded-lg p-2 bg-gradient-to-b from-orange-100 to-zinc-900' >
-        <div className='border-2 flex text-black h-3/6 justify-center p-2' >
-           <img src={log} className='boder-2'/>
+    <div className='h-screen  lg:flex  w-full sm:w-2/3 md:w-3/4 lg:w-4/5 xl:w-5/6 overflow-y-scroll'>
+      <div className='m-3 rounded-full h-[70%] lg:w-1/3 lg:h-[85%]  lg:m-4 lg:rounded-lg p-2 bg-gradient-to-b from-orange-100 to-zinc-900' >
+        <div className=' flex text-black h-[70%] lg:h-3/6 justify-center p-2' >
+          <img src={log} className='boder-2 rounded-full'  />
         </div>
-        <div className='border-2 text-white h-3/6'>
+        <div className=' text-white h-[30%] lg:h-3/6 justify-center text-center pt-5'>
           <h1>like videos</h1>
           <div>
-          <h2>web development </h2>
-          <h3>7 videos </h3>
+            <h2>web development </h2>
+            <h3>7 videos </h3>
           </div>
-         <div>
-          <button>
-            Play all
-          </button>
-         </div>
-          
+          <div>
+            <button>
+              Play all
+            </button>
+          </div>
+
         </div>
       </div>
-      <div className='w-full sm:w-2/3 h-[90%] p-4  '>
+      <div className='w-full lg:w-2/3 h-[90%] p-4  '>
         <div className=' h-[100%] overflow-y-scroll scrollbar-none'>
-          <h1>Video </h1>
+          <h1>liked Video </h1>
           <div className=''>
-          {data.map((items) => (
+            {data.map((items) => (
               <div
                 key={items.id}
                 className=" w-full h-40 flex rounded-lg p-2 my-3 bg-zinc-900 hover:bg-zinc-800"
@@ -67,8 +67,8 @@ function LikeVideo() {
                 </div>
               </div>
             ))}
-            
-            
+
+
           </div>
 
           {/* <div className='border-2 '>
@@ -100,7 +100,7 @@ function LikeVideo() {
               </div>
             ))}
             </div> */}
-            </div>
+        </div>
       </div>
     </div>
   )

@@ -3,7 +3,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaYoutube } from "react-icons/fa";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaMicrophone } from "react-icons/fa";
-import { RiVideoAddLine } from "react-icons/ri";
+import { RiH1, RiVideoAddLine } from "react-icons/ri";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../../redux/reducer/action";
 import data from "../../data/data.json";
 import { setFilteredData } from "../../redux/reducer/action";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
     // const [menu, setMenu] = useState(false);
@@ -21,7 +22,8 @@ function Navbar() {
     const [searchData, setSearchData] = useState("");
     const [filteredData, setFilteredData1] = useState([]); // Array to store search results
     const [isSmallScreen, setIsSmallScreen] = useState(false);
-
+    // const [noResults, setNoResults] = useState(false);
+    const nav=useNavigate();
 
     const filteredData1 = useSelector((state) => state.filter.filteredData);
 
@@ -49,10 +51,16 @@ function Navbar() {
         );
         if (results.length === 0) {
             console.log("data not find");
+            // setNoResults(true); // Set no results state to true
+            // setFilteredData1([]);
+            // dispatch(setFilteredData([]))
+            nav("/datanotfound");
         } else {
+            nav("/");
+
+            // setNoResults(false); // Set no results state to true
             console.log(results);
             setFilteredData1(results);
-
             if (searchData == "") {
                 dispatch(setFilteredData(searchData));
             } else {
@@ -76,9 +84,9 @@ function Navbar() {
     };
 
     const handleKeyDown = (e) => {
-        if (isSmallScreen) {
-            setShowSearch(!showSearch);
-        }
+        // if (isSmallScreen) {
+        //     setShowSearch(!showSearch);
+        // }
         if (e.key === "Enter") {
             handleSearchIcon(); // Trigger handleSearchIcon when Enter is pressed
         }
@@ -87,14 +95,14 @@ function Navbar() {
     useEffect(() => {
         const checkScreenSize = () => {
             setIsSmallScreen(window.matchMedia("(max-width: 768px)").matches);
-          };
-      
-          checkScreenSize(); // Check on component mount
-          window.addEventListener("resize", checkScreenSize); // Listen for screen size changes
-      
-          return () => {
+        };
+
+        checkScreenSize(); // Check on component mount
+        window.addEventListener("resize", checkScreenSize); // Listen for screen size changes
+
+        return () => {
             window.removeEventListener("resize", checkScreenSize); // Clean up on unmount
-          };
+        };
 
         document.addEventListener("click", handleClickOutside);
         return () => {
@@ -106,19 +114,19 @@ function Navbar() {
     return (
         <div className="w-full flex justify-between px-5 h-12 sm:h-14 items-center bg-[#212121] opacity-95 sticky ">
             <div
-                className={`border-2 sm:block sm:w-[30%] md:w-[20%] flex gap-4 items-center text-2xl text-white ${showSearch ? "" : "hidden"
+                className={`sm:block sm:w-[30%] md:w-[20%] flex gap-4 items-center text-2xl text-white ${showSearch ? "" : "hidden"
                     } `}
             >
                 {menu ? (
                     <div
-                        className=" cursor-pointer duration-1000 border-2 sm:hidden "
+                        className=" cursor-pointer duration-1000 sm:hidden "
                         onClick={handleClickOpenMenu}
                     >
                         <GiHamburgerMenu />
                     </div>
                 ) : (
                     <div
-                        className=" cursor-pointer duration-1000 border-2 sm:hidden"
+                        className=" cursor-pointer duration-1000 sm:hidden"
                         onClick={handleClickOpenMenu}
                     >
                         <IoMdClose />
