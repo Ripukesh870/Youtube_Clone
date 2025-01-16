@@ -187,16 +187,16 @@ function Sidebar() {
             name: 'History',
             route: "/history"
         },
-        {
-            icon: <MdOutlineLibraryAdd className='text-xl' />,
-            name: 'Library',
-            route: "/library"
-        },
-        {
-            icon: <MdOutlineWatchLater className='text-xl' />,
-            name: 'Watch later',
-            route: "/watchlist"
-        },
+        // {
+        //     icon: <MdOutlineLibraryAdd className='text-xl' />,
+        //     name: 'Library',
+        //     route: "/library"
+        // },
+        // {
+        //     icon: <MdOutlineWatchLater className='text-xl' />,
+        //     name: 'Watch later',
+        //     route: "/watchlist"
+        // },
         {
             icon: <AiFillLike className='text-xl' />,
             name: 'Liked video',

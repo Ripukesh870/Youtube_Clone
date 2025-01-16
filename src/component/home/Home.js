@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { videoPlay } from '../../redux/reducer/action';
 import { useNavigate } from 'react-router-dom';
 import log from "../../data/log.jpg"
-
+import { addToHistory } from '../../redux/reducer/action';
 
 function Home() {
     const [menu, setMenu] = useState(true);
@@ -14,16 +14,17 @@ function Home() {
     const navigate = useNavigate();
     const filteredData = useSelector((state) => state.filter.filteredData || []);
     const renderData = filteredData.length ? filteredData : data; // Use original `data` if `filteredData` is empty
+    const history = useSelector((state) => state.history.history);
 
     // console.log(filteredData)
 
 
     const handleClickVideo = (e) => {
-        console.log(filteredData)
-
-        console.log(e.id);
+        // console.log(e)
+        // console.log(e.id);
         dispach(videoPlay(e));
         navigate(`/video/${e.id}`);
+        dispach(addToHistory(e));
     }
 
 

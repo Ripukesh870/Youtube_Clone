@@ -10,8 +10,6 @@ function LikeVideo() {
 
   const dispach = useDispatch();
   const nav = useNavigate();
-
-
   const handleClick_video = (items) => {
     console.log(items);
     dispach(videoPlay(items));

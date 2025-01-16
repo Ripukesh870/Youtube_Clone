@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import VideoDescription from "./VideoDescription";
 import data from "../../data/data.json"
 import { useNavigate } from "react-router-dom";
-import { videoPlay } from "../../redux/reducer/action";
+import { addToHistory, videoPlay } from "../../redux/reducer/action";
 
 
 function VideoDetails() {
@@ -14,18 +14,22 @@ function VideoDetails() {
     // const data1 = data[0]
     // console.log(data1)
     const currentVideo = useSelector((state) => state.videoReducer.currentVideo);
+    const history = useSelector((state) => state.history.history);
 
     // console.log(currentVideo.title);
     const handlePlay=(items)=>{
         // console.log(items);
         dispach(videoPlay(items));
         nav(`/video/${items.id}`)
+        dispach(addToHistory(items));
+        
     }
 
+    console.log(history);
     return (
-        <div className="w-full flex flex-row border-2 lg:w-4/5 md:w-3/4 sm:w-2/3 xl:w-5/6 ">
-            <div className=" w-2/3 xl:w-3/4 lg:w-2/3 mt-2 p-4 border-2 ">
-                <div className="w-full p-2 ">
+        <div className="w-full lg:flex flex-row lg:w-4/5 md:w-3/4 sm:w-2/3 xl:w-5/6 overflow-y-scroll ">
+            <div className="  xl:w-3/4 lg:w-2/3 mt-2 p-4 border-2 ">
+                <div className="w-full p-2  ">
                     <video
                         src={currentVideo.videoUrl}
                         controls
@@ -33,7 +37,7 @@ function VideoDetails() {
                         style={{border:"2px solid #3d3d3b"}}
                     ></video>
                 </div>
-                <div className="p-2 px-4 ">
+                <div className="p-2 px-4  ">
                     <h1 className="text-white text-2xl font-bold px-2">
                         {currentVideo.title}
                     </h1>
@@ -55,10 +59,10 @@ function VideoDetails() {
                     </div>
                 </div>
             </div>   
-            <div className="px-2 w-1/3 h-screen overflow-y-scroll scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-gray-500 py-4 xl:w-1/4" style={{borderLeft:"2px solid #3d3d3b"}}>
+            <div className="px-2 w-full lg:w-1/3 h-screen  lg:overflow-y-scroll lg:scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-gray-500 py-4 xl:w-1/4" style={{borderLeft:"2px solid #3d3d3b"}}>
                 {  
                     data.map((items) => (
-                        <div className="w-full flex p-2 hover:bg-zinc-800 hover:rounded-md px-4 gap-2 cursor-pointer rounded-lg  my-3 bg-zinc-900 hover:bg-zinc-850" onClick={()=>handlePlay(items)} style={{}} key={items.id}>
+                        <div className="w-full flex p-2 hover:bg-zinc-800 hover:rounded-md px-4 gap-2 cursor-pointer rounded-lg  my-3 bg-zinc-900 hover:bg-zinc-850 border-2" onClick={()=>handlePlay(items)} style={{}} key={items.id}>
                             <div className="w-2/5 rounded-md h-24" style={{border:"2px solid #3d3d3b"}}>
                                 <img src={items.thumbnailUrl} alt="" className="rounded-md w-full h-full" />
                             </div>

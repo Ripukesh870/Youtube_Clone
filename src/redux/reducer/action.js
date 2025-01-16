@@ -43,3 +43,20 @@ export const setFilteredData = (data) => ({
   type: SET_FILTERED_DATA,
   payload: data,
 });
+
+
+export const ADD_TO_HISTORY = "ADD_TO_HISTORY";
+
+export const addToHistory = (video) => ({
+    type: ADD_TO_HISTORY,
+    payload: video,
+});
+
+
+
+export const ADD_TO_SHOTS_HISTORY = "ADD_TO_HISTORY";
+
+export const addToShotsHistory = (video) => ({
+    type: ADD_TO_SHOTS_HISTORY,
+    payload: video,
+});

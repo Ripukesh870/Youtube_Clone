@@ -12,8 +12,14 @@ import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import CommentIcon from "@mui/icons-material/Comment";
 import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { addToShotsHistory } from "../../redux/reducer/action";
+import { useDispatch, useSelector } from "react-redux";
 
 const VideoList = () => {
+  const dispatch = useDispatch();
+  const history = useSelector((state) => state.shots.history);
+  console.log(history)
+
   const videos = [
     { src: v1, label: "Video 1 erguegubvdf ibherb  df b " },
     { src: v2, label: "Video 2" },
@@ -63,6 +69,8 @@ const VideoList = () => {
     videoRefs.current.forEach((video, index) => {
       if (index === activeVideoIndex) {
         video?.play();
+        dispatch(addToShotsHistory(infiniteVideos[index]));
+
       } else {
         video?.pause();
       }
@@ -71,6 +79,7 @@ const VideoList = () => {
 
   const handleVideoClick = (index) => {
     // Toggle active video on click
+    
     setActiveVideoIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
@@ -105,15 +114,10 @@ const VideoList = () => {
               <h1 className="mx-3 text-sm my-1">video title # tags </h1>
             </div>
             <div className=" sm:w-14 absolute bottom-3 sm:right-[-4rem] justify-center right-0 px-1 " >
-                {/* {videoSide.map((items) => (
-                  <div className="w-auto  flex flex-col justify-center items-center p-1" key={items.id}>
-                    <button className="border-2 rounded-full p-[2px] "> {items.icon} </button>
-                    <p className="text-xs ">{items.label}</p>
-                  </div>
-                ))} */}
+               
                   {
                     videoSide.map((item) => (
-                      <div key={item.id} className="flex flex-col items-center pb-1 my-1 sm:my-0 ">
+                      <div key={item.id} className="flex flex-col items-center pb-1 my-1 py-1 sm:my-0 ">
                         <button 
                           onClick={item.action}
                           className=" rounded-full sm:p-1 sm:border sm:rounded-full hover:bg-gray-200 "

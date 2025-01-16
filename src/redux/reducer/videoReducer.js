@@ -21,4 +21,3 @@ const videoReducer = (state = initialState, action) => {
 export default videoReducer;
 
 
-

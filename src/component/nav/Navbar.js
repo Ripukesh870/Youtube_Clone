@@ -201,6 +201,9 @@ function Navbar() {
                             <input
                                 placeholder="Search "
                                 className="p-1  bg-zinc-950 w-full rounded-full px-3 focus:outline-none "
+                                value={searchData}
+                                onKeyDown={handleKeyDown}
+                                onChange={Handlesearch}
                             />
                             <button
                                 className=" rounded-r-full p-2"
