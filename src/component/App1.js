@@ -13,6 +13,7 @@ import Subscribe from './subscribe/Subscribe'
 import SubscriberManage from './subscribe/SubscriberManage'
 import LoadingPage from './nav/LoadingPage'
 import DataNotFound from './home/DataNotFound'
+import UploadVideo from './upload/UploadVideo'
 
 function App1() {
 
@@ -53,9 +54,11 @@ function App1() {
                     <Route path="/shots" element={<Shots />} />
                     <Route path="/watchlist" element={<WatchLater />} />
                     <Route path="/likedvideo" element={<LikeVideo />} />
-                    <Route path="/datanotfound" element={<DataNotFound />} />
-
+                    {/* <Route path="/datanotfound" element={<DataNotFound />} /> */}
+                    <Route path="/uploadvideo" element={<UploadVideo/>} />
                     
+                    <Route path="*" element={<DataNotFound />} />
+
                 </Routes>
             </div>
         </div>

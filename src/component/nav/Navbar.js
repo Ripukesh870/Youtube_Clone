@@ -138,7 +138,7 @@ function Navbar() {
                 </div>
             </div>
 
-            <div className="hidden sm:flex items-center justify-center gap-3 mx-3 w-[50%] lg:w-[40%]">
+            <div className="hidden sm:flex items-center justify-center gap-3 mx-3 w-[50%] lg:w-[40%]" >
                 {/* <form> */}
                 {/* <div className='flex bg-black items-center sm:h-8 lg:h-10 px-4 pr-0 rounded-3xl '>
                         <div className='flex gap-5 items-center pr-5'>
@@ -216,8 +216,8 @@ function Navbar() {
                 </div>
             </div>
 
-            <div className="hidden sm:w-[25%] md:w-[20%] xl:w-[12%] sm:flex text-xl items-center justify-between">
-                <RiVideoAddLine className="none" />
+            <div className="hidden sm:w-[25%] md:w-[20%] xl:w-[12%] sm:flex text-xl items-center justify-between" >
+                <RiVideoAddLine className="none cursor-pointer " onClick={()=>nav("/uploadvideo")}/>
                 <div className="relative">
                     <IoIosNotificationsOutline className="text-2xl" />
                     <span className="absolute bottom-2 left-3.5 bg-red-600 text-xs rounded-full px-1">
